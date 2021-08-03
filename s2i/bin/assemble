@@ -12,7 +12,7 @@ if [ ! -v BUILD ]; then
     fi
     
     if [ -f config.toml ]; then
-        if grep -s baseURL config.toml; then
+        if grep -i -s baseURL config.toml; then
             BUILD="hugo"
         else # base_url
             BUILD="zola"
