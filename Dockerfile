@@ -20,7 +20,7 @@ RUN useradd -u 1001 -r -g 0 -d ${HOME} -s /sbin/nologin -c "Default Application 
 RUN chown -R 1001:0 /opt/app-root
 RUN dnf install -y tar bsdtar shadow-utils git && dnf clean all
 
-RUN dnf install -y nginx ; dnf clean all
+RUN dnf install -y nginx httpd-filesystem; dnf clean all
 RUN /usr/bin/chmod -R 770 /var/{lib,log}/nginx/ && chown -R :root /var/{lib,log}/nginx/
 COPY ./s2i/nginx.conf  /etc/nginx/nginx.conf
 
