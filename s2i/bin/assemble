@@ -1,0 +1,30 @@
+#!/bin/bash
+set -e
+echo "---> Installing application source ..."
+cp -Rf /tmp/src/. .
+
+if [ ! -v BUILD ];
+    echo "---> Autodetect build command"
+    if [ -f Gemfile ]; then
+        if grep -s jekyll Gemfile ; then
+            BUILD="jekyll"
+        fi;
+    fi;
+    
+    if [ -f config.toml ];
+        if grep -s baseURL config.toml; then
+            BUILD="hugo"
+        else # base_url
+            BUILD="zola"
+        fi;
+    fi;
+    # TODO add
+    # middleman
+    # pelican
+    # nikola
+
+fi;
+
+echo "---> Build the website with $BUILD..."
+echo /usr/libexec/s2i/$BUILD
+

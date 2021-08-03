@@ -1,0 +1,15 @@
+#!/bin/sh
+
+cat <<EOF
+This is a S2 base image that detect the static site generator and run it on Fedora:
+To use it, install S2I: https://github.com/openshift/source-to-image
+
+Sample invocation:
+
+s2i build https://github.com/OSAS/community-website osas/s2i-ssg static_blog
+
+You can then run the resulting image via:
+docker run -p 8080:8080 static_blog
+
+
+EOF
