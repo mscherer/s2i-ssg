@@ -5,10 +5,10 @@ MAINTAINER Michael Scherer <mscherer@redhat.com>
 LABEL \
       # Location of the STI scripts inside the image.
       io.openshift.s2i.scripts-url=image:///usr/libexec/s2i \
-      io.k8s.description="Platform for building and running Hugo blog website" \
-      io.k8s.display-name="Hugo builder, Fedora 27" \
+      io.k8s.description="Platform for building and running static website" \
+      io.k8s.display-name="Hugo builder, Fedora 2" \
       io.openshift.expose-services="8080:http" \
-      io.openshift.tags="builder,hugo"
+      io.openshift.tags="builder"
 
 
 ENV \
