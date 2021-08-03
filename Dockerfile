@@ -1,4 +1,4 @@
-FROM fedora:27
+FROM registry.fedoraproject.org/fedora:34
 MAINTAINER Michael Scherer <mscherer@redhat.com>
 
 
