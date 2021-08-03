@@ -26,5 +26,5 @@ if [ ! -v BUILD ];
 fi;
 
 echo "---> Build the website with $BUILD..."
-echo /usr/libexec/s2i/$BUILD
+echo /usr/libexec/s2i/build_$BUILD
 
