@@ -15,13 +15,14 @@ ENV \
     STI_SCRIPTS_PATH=/usr/libexec/s2i \
     HOME=/opt/app-root/src \
     PATH=/opt/app-root/src/bin:/opt/app-root/bin:$PATH
+RUN dnf install -y tar bsdtar shadow-utils git && dnf clean all
 RUN mkdir -p /opt/app-root/src
 RUN useradd -u 1001 -r -g 0 -d ${HOME} -s /sbin/nologin -c "Default Application User" default
-RUN chown -R 1001:0 /opt/app-root
-RUN dnf install -y tar bsdtar shadow-utils git && dnf clean all
+RUN chown -R 1001:0 /opt/app-root 
 
 RUN dnf install -y nginx httpd-filesystem; dnf clean all
 RUN /usr/bin/chmod -R 770 /var/{lib,log}/nginx/ && chown -R :root /var/{lib,log}/nginx/
+RUN /usr/bin/chown -R 1001:0 /var/www/html
 COPY ./s2i/nginx.conf  /etc/nginx/nginx.conf
 
 
