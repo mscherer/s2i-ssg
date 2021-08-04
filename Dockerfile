@@ -27,7 +27,7 @@ COPY ./s2i/nginx.conf  /etc/nginx/nginx.conf
 
 
 RUN dnf install -y hugo zola && dnf clean all
-RUN dnf install -y rubygems make ruby-devel openssl-devel && dnf clean all
+RUN dnf install -y rubygems make ruby-devel openssl-devel gcc && dnf clean all
 
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH
 WORKDIR ${HOME}
