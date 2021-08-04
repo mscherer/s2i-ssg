@@ -26,8 +26,8 @@ RUN /usr/bin/chown -R 1001:0 /var/www/html
 COPY ./s2i/nginx.conf  /etc/nginx/nginx.conf
 
 
-RUN dnf install -y hugo zola ; dnf clean all
-RUN dnf install -y rubygems ruby-devel libcrypto-devel; dnf clean all
+RUN dnf install -y hugo zola && dnf clean all
+RUN dnf install -y rubygems ruby-devel libcrypto-devel && dnf clean all
 
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH
 WORKDIR ${HOME}
