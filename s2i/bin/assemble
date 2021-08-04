@@ -9,6 +9,9 @@ if [ ! -v BUILD ]; then
         if grep -s jekyll Gemfile Gemfile.lock ; then
             BUILD="jekyll"
         fi
+        if grep -s middleman Gemfile Gemfile.lock ; then
+            BUILD="middleman"
+        fi
     fi
     
     if [ -f config.toml ]; then

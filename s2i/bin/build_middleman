@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+gem install bundler
+bundle config set --local path '/tmp/ruby'
+bundle install
+bundle exec middleman build
+cp -r _site/* /var/www/html/
+rm -Rf /tmp/ruby
