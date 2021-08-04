@@ -1,6 +1,7 @@
 #!/bin/bash
+set -e
 gem install bundler
 bundle install --path /tmp/ruby
-bundle exec --path /tmp/ruby jekyll build
+bundle exec /tmp/ruby jekyll build
 cp -r _site/* /var/www/html/
 rm -Rf /tmp/ruby
