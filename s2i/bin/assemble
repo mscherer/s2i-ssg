@@ -6,7 +6,7 @@ cp -Rf /tmp/src/. .
 if [ ! -v BUILD ]; then
     echo "---> Autodetect build command"
     if [ -f Gemfile ]; then
-        if grep -s jekyll Gemfile ; then
+        if grep -s jekyll Gemfile Gemfile.lock ; then
             BUILD="jekyll"
         fi
     fi
