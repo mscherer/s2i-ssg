@@ -3,6 +3,6 @@ set -e
 gem install bundler
 bundle config set --local path '/tmp/ruby'
 bundle install
-bundle exec /tmp/ruby jekyll build
+bundle exec jekyll build
 cp -r _site/* /var/www/html/
 rm -Rf /tmp/ruby
